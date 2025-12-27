@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingStart="10dp"
+    android:paddingEnd="10dp"
+    android:paddingTop="16dp"
+    android:paddingBottom="1dp"
+    android:gravity="center_vertical"
+    android:background="?android:attr/selectableItemBackground">
+
+    <!-- Day of Week (e.g., WED) -->
+    <TextView
+        android:id="@+id/dayOfWeekTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:text="TODAY"
+        android:textSize="18sp"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"/>
+
+    <!-- Weather Icon (Placeholder) -->
+    <ImageView
+        android:id="@+id/forecastIcon"
+        android:layout_width="110dp"
+        android:layout_height="95dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="1dp"
+        android:contentDescription="Weather Icon"
+        android:scaleType="centerInside"
+        android:src="@drawable/clear_sky" />
+
+    <!-- Condition Description -->
+    <TextView
+        android:id="@+id/forecastCondition"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="3"
+        android:text="Mostly Sunny"
+        android:textSize="16sp"
+        android:textColor="@android:color/black"/>
+
+    <!-- High Temperature (Prominent) -->
+    <TextView
+        android:id="@+id/highTempTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.5"
+        android:text="18°C"
+        android:textSize="18sp"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        android:gravity="end"/>
+
+    <!-- Low Temperature (Muted) -->
+    <TextView
+        android:id="@+id/lowTempTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.5"
+        android:text="4°C"
+        android:textSize="16sp"
+        android:textColor="@android:color/darker_gray"
+        android:gravity="end"
+        android:layout_marginStart="8dp"/>
+
+</LinearLayout>

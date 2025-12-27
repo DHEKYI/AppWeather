@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F7FA"
+    tools:context=".MainActivity">
+
+    <!-- 1. HEADER ROW: Points and Search -->
+    <TextView
+        android:id="@+id/pointsTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:background="@drawable/corner_amber"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="8dp"
+        android:text="Points: 0"
+        android:textColor="@android:color/black"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/searchButton"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_margin="16dp"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:src="@android:drawable/ic_menu_search"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@android:color/black" />
+
+    <!-- 2. CENTER CONTENT GROUP (Vertical Chain to keep elements close) -->
+
+    <TextView
+        android:id="@+id/cityTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Lo Manthang, Nepal\n(लो मान्थाङ)"
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/alertBanner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/pointsTextView"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <LinearLayout
+        android:id="@+id/alertBanner"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="12dp"
+        android:background="#E8F5E9"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="12dp"
+        app:layout_constraintBottom_toTopOf="@+id/weatherIconImageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cityTextView">
+
+        <ImageView
+            android:id="@+id/alertIcon"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/safe"
+            app:tint="#2E7D32" />
+
+        <TextView
+            android:id="@+id/alertTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="Status: Conditions Normal"
+            android:textColor="#2E7D32"
+            android:textSize="13sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/weatherIconImageView"
+        android:layout_width="240dp"
+        android:layout_height="240dp"
+        android:layout_marginTop="8dp"
+        android:contentDescription="Weather icon"
+        android:scaleType="fitCenter"
+        android:src="@drawable/clear_sky"
+        app:layout_constraintBottom_toTopOf="@+id/tempContainer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/alertBanner" />
+
+    <LinearLayout
+        android:id="@+id/tempContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/secondaryDataLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/weatherIconImageView">
+
+        <TextView
+            android:id="@+id/tempTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="15°C"
+            android:textColor="@android:color/black"
+            android:textSize="52sp"
+            android:textStyle="bold" />
+
+        <ImageButton
+            android:id="@+id/speakerIcon"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:layout_marginStart="16dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:src="@android:drawable/ic_lock_silent_mode_off"
+            app:tint="#E91E63" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/secondaryDataLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="16dp"
+        android:background="@android:color/white"
+        android:elevation="2dp"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/forecastButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tempContainer">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="WIND" android:textSize="10sp" android:textColor="#999" />
+            <TextView android:id="@+id/windTextView" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="5.2 m/s" android:textColor="#000" android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="HUMIDITY" android:textSize="10sp" android:textColor="#999" />
+            <TextView android:id="@+id/humidityTextView" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="75%" android:textColor="#000" android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="VISIBILITY" android:textSize="10sp" android:textColor="#999" />
+            <TextView android:id="@+id/visibilityTextView" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="10 km" android:textColor="#000" android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- 3. FOOTER -->
+    <Button
+        android:id="@+id/forecastButton"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginBottom="24dp"
+        android:backgroundTint="#E91E63"
+        android:text="7 DAY FORECAST"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
