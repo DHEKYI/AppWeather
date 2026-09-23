@@ -1,4 +1,4 @@
-# Upper Mustang Weather & Alpine Alert App
+# Upper Mustang Weather Alert App
 
 An offline-first Android application designed for high-altitude conditions in Lo Manthang, Upper Mustang (Nepal). 
 
